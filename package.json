@@ -1,6 +1,6 @@
 {
   "name": "@shinminje/react-native-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UI basic components for react native",
   "main": "index.js",
   "publishConfig": {
