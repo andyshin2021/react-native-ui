@@ -1,32 +1,56 @@
 {
   "name": "@shinminje/react-native-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UI basic components for react native",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "react-native": "src/index.ts",
   "source": "src/index.ts",
   "files": [
-    "src"
+    "src",
+    "lib"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ext .tsx --ext .ts src/",
+    "format": "prettier --check ./src",
+    "start": "rm -rf Develop/dist && tsc -w --outDir Develop/dist",
+    "prepare": "rm -rf dist && tsc"
   },
-  "devDependencies": {
-    "@types/react": "^19.1.1",
-    "react": "^19.1.0",
-    "react-native": "^0.79.0",
-    "typescript": "^5.0.4"
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --ext .tsx --ext .ts src/ --fix"
+    ],
+    "./src/**": [
+      "prettier --write ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
     "@types/react": "*",
     "@types/react-native": "*",
+    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/parser": "^8.30.1",
+    "eslint": "^9.24.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3",
     "react": "*",
     "react-native": "*",
-    "react-native-gesture-handler": ">=2.16.1",
-    "react-native-reanimated": ">=3.16.0"
+    "typescript": "^5.8.3"
   },
   "repository": {
     "type": "git",

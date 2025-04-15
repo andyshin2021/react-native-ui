@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import React from "react";
 import { StyleSheet, View, type FlexStyle } from "react-native";
 
 type VStackProps = Omit<FlexStyle, "flexDirection"> & {
